@@ -151,6 +151,26 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchPlayground }) 
           <p className="text-sm text-[#a1a1aa] leading-relaxed font-normal">
             Launch any layout directly in the sandbox playground to live-edit content blocks, re-arrange section layers, tweak palette themes, and compile responsive tables.
           </p>
+
+          {/* Search bar & Categories filter */}
+          <div className="pt-4 flex flex-col sm:flex-row items-center gap-3.5 justify-center">
+            {/* Search */}
+            <div className="relative w-full sm:max-w-xs">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#71717a]" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search templates..."
+                className="w-full pl-10 pr-8 py-2.5 bg-black/60 border border-white/[0.06] rounded-xl text-xs text-[#fafafa] placeholder-[#52525b] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/20 transition duration-200"
+              />
+              {searchQuery && (
+                <button onClick={() => setSearchQuery('')} className="absolute right-3.5 top-1/2 -translate-y-1/2 cursor-pointer">
+                  <X className="h-3 w-3 text-[#71717a] hover:text-white" />
+                </button>
+              )}
+            </div>
+          </div>
         </div>
       </section>
     </div>
