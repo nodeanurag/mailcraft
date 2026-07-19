@@ -37,8 +37,15 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchPlayground }) 
   const eventPresets = useMemo(() => filteredPresets.filter(p => p.category === 'event'), [filteredPresets]);
 
   return (
-    <div>
-      <h1>MailCraft Landing Page</h1>
+    <div className="min-h-screen bg-[#030303] text-[#fafafa] flex flex-col selection:bg-[#ffffff] selection:text-[#000000] relative overflow-hidden">
+      
+      {/* DECORATIVE LIGHT BLOBS */}
+      <div className="blur-blob-purple top-[-100px] left-[-50px]" />
+      <div className="blur-blob-pink bottom-[20%] right-[-100px]" />
+      
+      <div>
+        <h1>MailCraft Landing Page</h1>
+      </div>
     </div>
   );
 };
