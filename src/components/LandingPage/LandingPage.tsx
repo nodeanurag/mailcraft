@@ -306,6 +306,34 @@ interface TemplateCategoryRowProps {
   onLaunch: (id: string) => void;
 }
 
-const TemplateCategoryRow: React.FC<TemplateCategoryRowProps> = () => {
-  return null;
+const TemplateCategoryRow: React.FC<TemplateCategoryRowProps> = ({ title, subtitle, presets, onLaunch }) => {
+  return (
+    <div className="space-y-4">
+      {/* Section info */}
+      <div className="flex items-end justify-between border-b border-white/[0.04] pb-2">
+        <div>
+          <h3 className="text-[11.5px] font-black text-white tracking-widest uppercase">{title}</h3>
+          <p className="text-[11px] text-[#52525b] mt-0.5">{subtitle}</p>
+        </div>
+        <div className="text-[9.5px] text-[#52525b] font-mono-tech select-none">
+          {presets.length} Presets
+        </div>
+      </div>
+
+      {/* Card Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        {presets.map((preset) => (
+          <TemplatePreviewCard key={preset.id} preset={preset} onLaunch={onLaunch} />
+        ))}
+      </div>
+    </div>
+  );
 };
+
+// ─── LIVE PREVIEW CARD ─────────────────────────────────────
+interface TemplatePreviewCardProps {
+  preset: TemplatePreset;
+  onLaunch: (id: string) => void;
+}
+
+const TemplatePreviewCard: React.FC<TemplatePreviewCardProps> = () => null;
