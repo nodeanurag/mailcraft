@@ -92,6 +92,20 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchPlayground }) 
             <p className="text-sm md:text-[14.5px] text-[#a1a1aa] leading-relaxed max-w-lg font-normal">
               Create gorgeous, email-client compliant templates with absolute structural precision. Powered by `@unlayer/react-elements` for complete custom themes. Reorder layers, live-preview responsive grids, and export responsive HTML.
             </p>
+            
+            <div className="flex flex-wrap items-center gap-4">
+              <button
+                onClick={() => onLaunchPlayground('weekly-digest')}
+                className="px-6 py-4 bg-white text-black hover:bg-neutral-200 text-xs font-bold rounded-xl transition duration-200 shadow-xl shadow-white/5 active:scale-95 flex items-center gap-1.5 cursor-pointer"
+              >
+                <span>Launch Interactive Studio</span>
+                <ArrowRight className="h-4 w-4 text-black" />
+              </button>
+              
+              <a href="#gallery" className="px-6 py-4 border border-white/10 hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.05] rounded-xl text-xs font-bold text-white transition duration-200 active:scale-95 shadow">
+                Browse 18 Templates
+              </a>
+            </div>
           </div>
         </div>
       </header>
