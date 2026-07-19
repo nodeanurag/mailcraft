@@ -192,7 +192,58 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchPlayground }) 
             </div>
           </div>
         </div>
+
+        {/* Categories rendering */}
+        <div className="space-y-14">
+          {(activeCategory === 'all' || activeCategory === 'editorial') && editorialPresets.length > 0 && (
+            <TemplateCategoryRow
+              title="MINIMALIST JOURNAL"
+              subtitle="Clean newsletters, editorial digests, and weekly curation boards"
+              presets={editorialPresets}
+              onLaunch={onLaunchPlayground}
+            />
+          )}
+
+          {(activeCategory === 'all' || activeCategory === 'commerce') && commercePresets.length > 0 && (
+            <TemplateCategoryRow
+              title="PRODUCT SHOWCASE"
+              subtitle="Promotional catalogs, new item releases, discount vouchers"
+              presets={commercePresets}
+              onLaunch={onLaunchPlayground}
+            />
+          )}
+
+          {(activeCategory === 'all' || activeCategory === 'event') && eventPresets.length > 0 && (
+            <TemplateCategoryRow
+              title="EVENTS & LAUNCHES"
+              subtitle="Event invites, product launch timelines, speaker spotlights"
+              presets={eventPresets}
+              onLaunch={onLaunchPlayground}
+            />
+          )}
+
+          {filteredPresets.length === 0 && (
+            <div className="text-center py-16">
+              <p className="text-sm text-[#71717a]">No presets matching your criteria found.</p>
+              <button onClick={() => { setSearchQuery(''); setActiveCategory('all'); }} className="mt-3 text-xs text-indigo-400 font-bold hover:underline">
+                Clear all filters
+              </button>
+            </div>
+          )}
+        </div>
       </section>
     </div>
   );
+};
+
+// ─── CATEGORY ROW COMPONENT ───────────────────────────────
+interface TemplateCategoryRowProps {
+  title: string;
+  subtitle: string;
+  presets: TemplatePreset[];
+  onLaunch: (id: string) => void;
+}
+
+const TemplateCategoryRow: React.FC<TemplateCategoryRowProps> = () => {
+  return null;
 };
