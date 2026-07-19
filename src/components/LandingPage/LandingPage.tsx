@@ -337,12 +337,66 @@ interface TemplatePreviewCardProps {
 }
 
 const TemplatePreviewCard: React.FC<TemplatePreviewCardProps> = ({ preset, onLaunch }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Memoize rendered HTML template
+  const previewHtml = useMemo(() => {
+    try {
+      const html = renderToHtml(<QuantumTemplate data={preset.data} mode="email" />);
+      const origin = window.location.origin;
+      return html.replace(/(src|href)="\/([^/][^"]*)"/g, `$1="${origin}/$2"`);
+    } catch {
+      return '<div style="padding:40px;color:#777;">Preview Error</div>';
+    }
+  }, [preset.data]);
+
   return (
     <div
       className="group flex flex-col space-y-3.5 select-none cursor-pointer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       onClick={() => onLaunch(preset.id)}
     >
-      {preset.name}
+      {/* Mini email preview container */}
+      <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-white/[0.06] bg-[#09090b] transition-all duration-300 group-hover:border-[#6366f1]/40 group-hover:shadow-xl group-hover:shadow-indigo-500/5 group-hover:-translate-y-1">
+        
+        {/* scaled iframe showing actual compiled template design */}
+        <div className="w-[100%] h-[100%] overflow-hidden pointer-events-none select-none">
+          <iframe
+            srcDoc={previewHtml}
+            title={preset.name}
+            sandbox="allow-same-origin"
+            className="border-0 pointer-events-none"
+            style={{
+              width: '540px',
+              height: '720px',
+              transform: 'scale(0.334)',
+              transformOrigin: 'top left',
+            }}
+            scrolling="no"
+          />
+        </div>
+
+        {/* Hover backdrop overlay */}
+        <div className={`absolute inset-0 bg-black/65 backdrop-blur-[2px] flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+          <button
+            onClick={(e) => { e.stopPropagation(); onLaunch(preset.id); }}
+            className="px-3.5 py-2 bg-white text-black text-[10px] font-bold rounded-lg shadow-xl flex items-center gap-1 active:scale-95 transition-all duration-200 cursor-pointer"
+          >
+            <span>Edit Template</span>
+            <ArrowRight className="h-3 w-3 text-black" />
+          </button>
+        </div>
+      </div>
+
+      {/* Title & Desc */}
+      <div className="px-1 text-left">
+        <h4 className="text-[11px] font-extrabold text-white truncate uppercase tracking-widest">{preset.name}</h4>
+        <p className="text-[10px] text-[#71717a] line-clamp-2 mt-1 min-h-[28px] leading-tight font-normal">{preset.description}</p>
+        <span className="inline-block text-[8px] font-bold tracking-wider uppercase px-2 py-0.5 rounded mt-2.5 text-zinc-300 bg-white/[0.04] border border-white/[0.06]">
+          {preset.categoryLabel}
+        </span>
+      </div>
     </div>
   );
 };
