@@ -139,6 +139,20 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchPlayground }) 
           </div>
         </div>
       </header>
+
+      {/* TEMPLATE SECTION */}
+      <section id="gallery" className="max-w-[1400px] mx-auto w-full px-6 py-20 md:py-28 space-y-16 relative z-10">
+        
+        {/* Section Title */}
+        <div className="text-center space-y-5 max-w-xl mx-auto">
+          <h2 className="text-2xl md:text-3.5xl font-black tracking-tight text-white uppercase font-editorial">
+            Choose a Template Preset
+          </h2>
+          <p className="text-sm text-[#a1a1aa] leading-relaxed font-normal">
+            Launch any layout directly in the sandbox playground to live-edit content blocks, re-arrange section layers, tweak palette themes, and compile responsive tables.
+          </p>
+        </div>
+      </section>
     </div>
   );
 };
