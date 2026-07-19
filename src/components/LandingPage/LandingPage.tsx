@@ -170,6 +170,26 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchPlayground }) 
                 </button>
               )}
             </div>
+
+            {/* Filter Tabs */}
+            <div className="flex items-center gap-1 bg-black/60 border border-white/[0.06] rounded-xl p-1 w-full sm:w-auto overflow-x-auto">
+              {CATEGORIES.map(cat => {
+                const isActive = activeCategory === cat.key;
+                return (
+                  <button
+                    key={cat.key}
+                    onClick={() => setActiveCategory(cat.key)}
+                    className={`px-3.5 py-2 rounded-lg text-[10px] font-extrabold uppercase tracking-wider transition duration-200 whitespace-nowrap cursor-pointer ${
+                      isActive
+                        ? 'bg-white text-black shadow-md'
+                        : 'text-[#71717a] hover:text-white'
+                    }`}
+                  >
+                    {cat.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
