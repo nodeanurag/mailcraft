@@ -72,10 +72,29 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchPlayground }) 
           </button>
         </div>
       </nav>
-      
-      <div>
-        <h1>MailCraft Landing Page</h1>
-      </div>
+
+      {/* HERO SECTION */}
+      <header className="relative bg-grid border-b border-white/[0.04] py-24 px-6 overflow-hidden z-10">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-14">
+          
+          {/* Left Intro content */}
+          <div className="flex-1 space-y-7 text-left animate-fade-in-up">
+            <div className="inline-flex items-center space-x-2 bg-white/[0.03] border border-white/[0.06] px-4 py-1.5 rounded-full">
+              <Sparkles className="h-3.5 w-3.5 text-indigo-400 animate-pulse" />
+              <span className="text-[10px] font-bold text-zinc-300 tracking-wider uppercase">Unlayer Elements Sandbox</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] text-white font-extrabold uppercase">
+              The Premium <br/>
+              <span className="text-gradient-neon font-black">Email Studio</span>
+            </h1>
+            
+            <p className="text-sm md:text-[14.5px] text-[#a1a1aa] leading-relaxed max-w-lg font-normal">
+              Create gorgeous, email-client compliant templates with absolute structural precision. Powered by `@unlayer/react-elements` for complete custom themes. Reorder layers, live-preview responsive grids, and export responsive HTML.
+            </p>
+          </div>
+        </div>
+      </header>
     </div>
   );
 };
