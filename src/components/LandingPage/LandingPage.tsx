@@ -336,4 +336,13 @@ interface TemplatePreviewCardProps {
   onLaunch: (id: string) => void;
 }
 
-const TemplatePreviewCard: React.FC<TemplatePreviewCardProps> = () => null;
+const TemplatePreviewCard: React.FC<TemplatePreviewCardProps> = ({ preset, onLaunch }) => {
+  return (
+    <div
+      className="group flex flex-col space-y-3.5 select-none cursor-pointer"
+      onClick={() => onLaunch(preset.id)}
+    >
+      {preset.name}
+    </div>
+  );
+};
