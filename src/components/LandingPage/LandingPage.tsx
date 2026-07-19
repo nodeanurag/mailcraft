@@ -106,6 +106,22 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchPlayground }) 
                 Browse 18 Templates
               </a>
             </div>
+
+            {/* Micro Highlights */}
+            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-white/[0.06] max-w-md">
+              <div>
+                <div className="text-xl font-extrabold text-white font-mono-tech">18</div>
+                <div className="text-[9px] text-[#71717a] font-bold uppercase tracking-widest mt-0.5">Presets</div>
+              </div>
+              <div>
+                <div className="text-xl font-extrabold text-white font-mono-tech">0%</div>
+                <div className="text-[9px] text-[#71717a] font-bold uppercase tracking-widest mt-0.5">JS Overhead</div>
+              </div>
+              <div>
+                <div className="text-xl font-extrabold text-white font-mono-tech">100%</div>
+                <div className="text-[9px] text-[#71717a] font-bold uppercase tracking-widest mt-0.5">Responsive</div>
+              </div>
+            </div>
           </div>
         </div>
       </header>
