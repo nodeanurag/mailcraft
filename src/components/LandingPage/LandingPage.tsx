@@ -276,6 +276,24 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchPlayground }) 
           </div>
         </div>
       </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-white/[0.04] bg-[#000000] px-6 py-10 text-center text-xs text-[#52525b] select-none mt-auto relative z-10">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center space-x-2">
+            <div className="h-6 w-6 rounded-lg overflow-hidden flex items-center justify-center bg-black border border-white/10 p-[1px]">
+              <div className="w-full h-full bg-gradient-to-br from-indigo-500 to-pink-500 rounded flex items-center justify-center">
+                <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+            </div>
+            <span className="font-extrabold text-white tracking-widest uppercase">MailCraft</span>
+            <span className="text-[10px] text-[#3f3f46]">• Premium Studio</span>
+          </div>
+          <p>© {new Date().getFullYear()} MailCraft. Built with Unlayer Elements. Open-source under MIT.</p>
+        </div>
+      </footer>
     </div>
   );
 };
