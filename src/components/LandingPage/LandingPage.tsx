@@ -18,7 +18,24 @@ const CATEGORIES = [
 
 type CategoryKey = typeof CATEGORIES[number]['key'];
 
-export const LandingPage: React.FC<LandingPageProps> = () => {
+export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchPlayground }) => {
+  const [activeCategory, setActiveCategory] = useState<CategoryKey>('all');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredPresets = useMemo(() => {
+    return TEMPLATE_PRESETS.filter(p => {
+      const matchesCategory = activeCategory === 'all' || p.category === activeCategory;
+      const matchesSearch = searchQuery === '' || 
+        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.description.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }, [activeCategory, searchQuery]);
+
+  const editorialPresets = useMemo(() => filteredPresets.filter(p => p.category === 'editorial'), [filteredPresets]);
+  const commercePresets = useMemo(() => filteredPresets.filter(p => p.category === 'commerce'), [filteredPresets]);
+  const eventPresets = useMemo(() => filteredPresets.filter(p => p.category === 'event'), [filteredPresets]);
+
   return (
     <div>
       <h1>MailCraft Landing Page</h1>
