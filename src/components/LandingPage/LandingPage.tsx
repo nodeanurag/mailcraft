@@ -123,6 +123,20 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchPlayground }) 
               </div>
             </div>
           </div>
+
+          {/* Right Floating Mockup */}
+          <div className="flex-1 w-full flex justify-center animate-fade-in-up stagger-2">
+            <div className="relative max-w-sm w-full animate-float">
+              <div className="absolute -inset-4 bg-indigo-500/5 rounded-2xl blur-2xl opacity-40" />
+              <div className="relative border border-white/[0.06] bg-[#09090b] p-3 rounded-2xl shadow-2xl">
+                <img
+                  src="/landing_hero.png"
+                  alt="Email builder canvas preview mockup"
+                  className="w-full h-auto rounded-xl opacity-90 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </header>
     </div>
