@@ -1,128 +1,100 @@
-# MailCraft ✉️ — Premium Email Template Studio
+# ✉️ MailCraft — Multi-Channel Email Studio & Visual Template Engine
 
-> **Submission for the Unlayer "Build with Elements" Challenge**
->
-> A premium email template studio with 18 production-ready designs across 3 categories (Newsletter, Commerce, Events). Built using `@unlayer/react-elements` with a beautiful live editor to customize, preview, and export email-safe HTML/JSON.
+**A responsive, production-ready visual email layout workbench and canvas.**
 
----
+MailCraft is a premium, unified content workspace built for digital creators and engineering teams. It allows designers to describe template structures, custom color palettes, and marketing copy **once** in a single structured JSON object, instantly generating responsive, standards-compliant assets across multiple views: **Email Clients Layouts**, **Responsive Web Pages**, and **Print-Ready Documents**.
 
-## 🌟 Key Features
-
-*   **Code-First & Type-Safe**: Designed entirely in React with TypeScript (`@unlayer/react-elements`), ensuring complete auto-complete and component safety.
-*   **Highly Themeable & Custom Content**: Change colors (backgrounds, buttons, borders, text) and block contents dynamically. Supports pre-configured themes (Indigo, Cyberpunk, Rose, Emerald).
-*   **Responsive Viewport Sandbox**: Inspect the compiled output on Desktop, Tablet, or Mobile views inside an isolated, secure sandboxed environment.
-*   **Three Export Targets**:
-    *   **Visual Sandbox**: Check the real-time layout in an `iframe` isolated from playground styles.
-    *   **Compiled HTML**: Instant, production-ready table-based HTML, optimized to be email-client safe (Outlook, Gmail, Apple Mail).
-    *   **Unlayer JSON**: Export Unlayer-compatible Design JSON so it can be loaded back into Unlayer's drag-and-drop visual editors!
-    *   **React JSX Implementation**: Ready-to-copy code snippets showing how to implement the template in your own applications.
+![MailCraft Studio Landing Hero](public/assets/landing-hero.png)
 
 ---
 
-## 📁 Repository Structure
+## 📌 Problem Statement
 
-```bash
-├── src/
-│   ├── templates/
-│   │   └── QuantumTemplate.tsx    # 🚀 Reusable React template (Unlayer Elements)
-│   ├── components/
-│   │   └── Playground.tsx         # 💻 Interactive Developer Canvas & Form Controller
-│   ├── App.tsx                    # Mounts the Playground
-│   ├── index.css                  # Tailwinds layers & custom theme tokens
-│   └── main.tsx                   # App Entrypoint
-├── tailwind.config.js             # Playground UI Layout configuration
-├── postcss.config.js              # CSS build configuration (PostCSS + Tailwind v4)
-└── README.md                      # Detailed project documentation
-```
+Digital marketing and engineering teams face significant friction maintaining consistency and quality across multiple marketing channels:
+1. **Fragmented Email Client Styling:** Writing standards-compliant email code is notoriously difficult. Ensuring layouts render consistently across Outlook, Gmail, Apple Mail, and mobile clients requires verbose, nested table code and inline CSS.
+2. **Design-to-Code Drift:** Building email templates in isolated visual designers and then manually coding them leads to design inconsistencies, structural bugs, and lost productivity.
+3. **Double Maintenance:** Updating a promotion code, changing product pricing, or tweaking color variables requires editing code configurations in several separate files, leading to high operational overhead.
+
+---
+
+## 💡 The Solution: MailCraft
+
+MailCraft addresses these challenges using the philosophy of **"One source of truth → Multiple responsive outputs."** Powered by `@unlayer/react-elements` compatible blocks, the studio reads a single data schema and renders branded outputs across three media viewports:
+
+1. 📧 **Compliant Email Newsletter:** A responsive, single-column table layout optimized for standard email clients, containing brand headers, feature logs, spotlights, and feedback grids.
+2. 📱 **Mobile & Desktop Web Page:** A responsive web document view that renders the template using responsive web elements, standard typography spacing, and modern styling tokens.
+3. 📄 **Print Documents & PDFs:** A print-formatted document engine that wraps content according to A4 portrait specs, with custom margins and typography styles suitable for offline publication.
+
+### 🎨 Visual Theme Presets Catalog
+Designers can instantly swap the branding aesthetic using curated presets. The studio dynamically translates typography families, color variables, borders, button configurations, and shadow depths across all formats.
+
+![Designed for every brand style](public/assets/landing-presets.png)
+
+---
+
+## 🛠️ Multi-Channel Workspace Features
+
+Every template compiles in real time. The workspace provides complete control over the layout, theme variables, and layout items:
+
+### 💻 Split View Workspace Layout
+A split-screen workspace featuring the real-time **Sidebar Customizer** panel on the left and a live-updating **Format Preview Viewport** showing output channels simultaneously. Includes responsive mobile, tablet, and desktop simulations.
+
+![Workspace Split View Layout](public/assets/workspace-split-view.png)
+
+### 🎨 Unlayer Visual Builder Tab
+Need customized structural revisions? Switch tabs to launch the fully featured **Drag & Drop Editor** powered by Unlayer, loaded with your active design configuration.
+
+![Unlayer Visual Editor](public/assets/unlayer-editor.png)
+
+### 📤 Comprehensive Export Panel
+* **Save Config JSON:** Download the structured customizer parameters to import later.
+* **Save Editor JSON:** Download the Unlayer drag-and-drop schema layout.
+* **Copy HTML outputs:** Instant copy-to-clipboard actions for compiled Email HTML and Print HTML.
+* **Export High-Res PDF:** Launch standard system print dialogs with pre-loaded print stylesheet variables.
+* **Capture PNG Images:** Trigger client-side canvas rendering to download visual snapshot graphics.
 
 ---
 
 ## 🚀 Getting Started
 
-Follow these steps to run the interactive developer sandbox locally:
+### 📋 Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
-### 1. Prerequisites
-Ensure you have **Node.js** (v18+) and **npm** installed.
+### 🔧 Installation
+1. Clone the repository and navigate to the project directory:
+   ```bash
+   git clone https://github.com/nodeanurag/mailcraft.git
+   cd mailcraft
+   ```
+2. Install package dependencies:
+   ```bash
+   npm install
+   ```
 
-### 2. Installation
-Clone the repository and install dependencies:
-```bash
-git clone <your-repo-url>
-cd <your-repo-folder>
-npm install
-```
+### 💻 Local Development
+1. Start the Vite local development server:
+   ```bash
+   npm run dev
+   ```
+2. Open [http://localhost:5173](http://localhost:5173) in your browser to access the studio.
 
-### 3. Start Development Server
-Launch the local Vite server:
-```bash
-npm run dev
-```
-Open [http://localhost:5173](http://localhost:5173) in your browser to interact with the playground.
+### 📸 Auto-Generating Screenshots
+If you modify templates or branding themes and wish to update the documentation screenshots automatically:
+1. Make sure the local dev server is running (`npm run dev`).
+2. Run the screenshot capture automation script:
+   ```bash
+   npm run screenshot
+   ```
+   *Note: This utilizes Playwright in headless mode to navigate the workspace, click presets, and export screenshots directly to `public/assets/`.*
 
-### 4. Build for Production
-To build a static deployment-ready version of the playground:
+### 🏗️ Production Build
+Compile and bundle the project for production distribution:
 ```bash
 npm run build
 ```
+The compiled output will be generated inside the `dist/` directory.
 
 ---
 
-## 🛠️ Reusing the Templates (Developer Guide)
-
-The templates are built modularly inside `src/templates/QuantumTemplate.tsx`. You can easily copy this file to your backend server or cloud functions to generate emails programmatically.
-
-### 1. Render to HTML on Server-Side (e.g. Node, Next.js, Cloudflare Workers)
-To generate email-safe HTML to send via AWS SES, SendGrid, or Resend:
-
-```tsx
-import { renderToHtml } from '@unlayer/react-elements';
-import { QuantumTemplate, defaultQuantumData } from './templates/QuantumTemplate';
-
-// 1. Customize content for a specific user
-const customData = {
-  ...defaultQuantumData,
-  hero: {
-    ...defaultQuantumData.hero,
-    title: "Hey John, Here is Your Weekly Tech Digest!",
-  }
-};
-
-// 2. Generate email-client safe HTML
-const emailHtml = renderToHtml(
-  <QuantumTemplate data={customData} mode="email" />
-);
-
-// 3. Send using your favorite email provider
-// sendMail({ to: "john@example.com", html: emailHtml, subject: "Your Digest" });
-```
-
-### 2. Exporting to Unlayer Drag-and-Drop Visual Editor
-To sync your code-designed template with Unlayer's standard visual builders, use `renderToJson` in your app:
-
-```tsx
-import { renderToJson } from '@unlayer/react-elements';
-import { QuantumTemplate } from './templates/QuantumTemplate';
-
-// Generate Unlayer JSON structure
-const designJson = renderToJson(<QuantumTemplate mode="email" />);
-console.log(designJson); // Save to database or pass to Unlayer editor.loadDesign()
-```
-
----
-
-## 🎨 Layout & Elements Hierarchy
-
-Our email templates leverage the following `@unlayer/react-elements` primitives:
-1.  **`<Email>` / `<Page>`**: Structural roots that dictate the final document behavior (e.g., table structure for email vs. divs for web).
-2.  **`<Row>`**: Implements layout sections. Uses preset definitions like `ColumnLayouts.TwoEqual` or custom column spans to stack elegantly on mobile devices.
-3.  **`<Column>`**: Flex items inside rows containing structural content. Supports padding, borders, and rounded corners.
-4.  **`<Heading>` & `<Paragraph>`**: Core text wrappers supporting size, weight, leading, colors, and font-family selectors.
-5.  **`<Button>`**: Formats email-safe CTA buttons without requiring CSS hacks.
-6.  **`<Image>`**: Implements image elements, handling sizing constraints dynamically across screens.
-
----
-
-## 🤝 Support the Elements Ecosystem
-This project utilizes the free, open-source `@unlayer/react-elements` package. Consider giving them a star on GitHub!
-*   **Library GitHub**: [github.com/unlayer/elements](https://github.com/unlayer/elements)
-*   **Documentation Guide**: [docs.unlayer.com/docs/elements](https://docs.unlayer.com/docs/elements)
+## 🛡️ License
+Distributed under the MIT License. See `LICENSE` for more information.
