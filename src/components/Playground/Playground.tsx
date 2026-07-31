@@ -88,6 +88,11 @@ export const Playground: React.FC<{
   const [editorHtmlOverride, setEditorHtmlOverride] = useState<string | null>(null);
   const [editorJsonOverride, setEditorJsonOverride] = useState<string | null>(null);
 
+  const tabRef = useRef(tab);
+  useEffect(() => {
+    tabRef.current = tab;
+  }, [tab]);
+
   // Clear overrides when user interacts with custom sidebar controls or resets
   useEffect(() => {
     setEditorHtmlOverride(null);
@@ -96,7 +101,7 @@ export const Playground: React.FC<{
 
   // Compile to HTML & JSON dynamically
   const compiledHtml = useMemo(() => {
-    if (editorHtmlOverride) return editorHtmlOverride;
+    if (tab === 'editor' && editorHtmlOverride) return editorHtmlOverride;
     try {
       const html = renderToHtml(<QuantumTemplate data={data} mode="email" />);
       const printStyles = `
@@ -127,10 +132,10 @@ export const Playground: React.FC<{
     } catch (e) {
       return `Error compiling template: ${(e as Error).message}`;
     }
-  }, [data, editorHtmlOverride]);
+  }, [data, editorHtmlOverride, tab]);
 
   const compiledWebHtml = useMemo(() => {
-    if (editorHtmlOverride) return editorHtmlOverride;
+    if (tab === 'editor' && editorHtmlOverride) return editorHtmlOverride;
     try {
       const html = renderToHtml(<QuantumTemplate data={data} mode="page" />);
       const fontStyles = `
@@ -146,10 +151,10 @@ export const Playground: React.FC<{
       console.error(e);
       return `<html><body><div style="color:red;padding:20px;font-family:sans-serif;"><h3>Web Render Error</h3><pre>${(e as Error).stack || (e as Error).message}</pre></div></body></html>`;
     }
-  }, [data, editorHtmlOverride]);
+  }, [data, editorHtmlOverride, tab]);
 
   const compiledPrintHtml = useMemo(() => {
-    if (editorHtmlOverride) return editorHtmlOverride;
+    if (tab === 'editor' && editorHtmlOverride) return editorHtmlOverride;
     try {
       const html = renderToHtml(<QuantumTemplate data={data} mode="document" />);
       const printStyles = `
@@ -181,10 +186,10 @@ export const Playground: React.FC<{
       console.error(e);
       return `<html><body><div style="color:red;padding:20px;font-family:sans-serif;"><h3>Print Render Error</h3><pre>${(e as Error).stack || (e as Error).message}</pre></div></body></html>`;
     }
-  }, [data, editorHtmlOverride]);
+  }, [data, editorHtmlOverride, tab]);
 
   const compiledJson = useMemo(() => {
-    if (editorJsonOverride) return editorJsonOverride;
+    if (tab === 'editor' && editorJsonOverride) return editorJsonOverride;
     try {
       const json = renderToJson(<QuantumTemplate data={data} mode="email" />);
       let jsonStr = JSON.stringify(json, null, 2);
@@ -197,7 +202,7 @@ export const Playground: React.FC<{
     } catch (e) {
       return `Error generating JSON: ${(e as Error).message}`;
     }
-  }, [data, editorJsonOverride]);
+  }, [data, editorJsonOverride, tab]);
 
   // Initialize unlayer once editor container is mounted
   const onEditorReady = () => {
@@ -215,6 +220,7 @@ export const Playground: React.FC<{
       });
 
       unlayer.addEventListener('design:updated', () => {
+        if (tabRef.current !== 'editor') return;
         unlayer.saveDesign((design: any) => {
           const designStr = JSON.stringify(design, null, 2);
           setEditorJsonOverride(designStr);
