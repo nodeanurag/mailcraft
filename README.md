@@ -4,7 +4,11 @@
 
 MailCraft is a premium, unified content workspace built for digital creators and engineering teams. It allows designers to describe template structures, custom color palettes, and marketing copy **once** in a single structured JSON object, instantly generating responsive, standards-compliant assets across multiple views: **Email Clients Layouts**, **Responsive Web Pages**, and **Print-Ready Documents**.
 
-![MailCraft Studio Landing Hero](public/assets/landing-hero.png)
+### 🌓 Dark Mode Hero
+![MailCraft Studio Landing Hero Dark](public/assets/landing-hero-dark.png)
+
+### 🌓 Light Mode Hero
+![MailCraft Studio Landing Hero Light](public/assets/landing-hero-light.png)
 
 ---
 
@@ -28,7 +32,26 @@ MailCraft addresses these challenges using the philosophy of **"One source of tr
 ### 🎨 Visual Theme Presets Catalog
 Designers can instantly swap the branding aesthetic using curated presets. The studio dynamically translates typography families, color variables, borders, button configurations, and shadow depths across all formats.
 
-![Designed for every brand style](public/assets/landing-presets.png)
+#### Dark Mode presets
+![Designed for every brand style (Dark)](public/assets/landing-presets-dark.png)
+
+#### Light Mode presets
+![Designed for every brand style (Light)](public/assets/landing-presets-light.png)
+
+### 🗂️ Rich Template Presets (18 Layouts)
+While MailCraft provides a catalog of **18 professional templates** spanning Newsletter digests, E-commerce showcases, and Event launches, here are screenshots of 5 selected templates live-rendered by our rendering compiler:
+
+| **Weekly Digest (Editorial)** | **Founder Letter (Editorial)** |
+| :---: | :---: |
+| ![Weekly Digest](public/assets/template-weekly-digest.png) | ![Founder Letter](public/assets/template-founder-letter.png) |
+
+| **New Collection (Commerce)** | **Flash Sale (Commerce)** |
+| :---: | :---: |
+| ![New Collection](public/assets/template-new-collection.png) | ![Flash Sale](public/assets/template-flash-sale.png) |
+
+| **Product Launch (Event)** |
+| :---: |
+| ![Product Launch](public/assets/template-product-launch.png) |
 
 ---
 
@@ -39,7 +62,11 @@ Every template compiles in real time. The workspace provides complete control ov
 ### 💻 Split View Workspace Layout
 A split-screen workspace featuring the real-time **Sidebar Customizer** panel on the left and a live-updating **Format Preview Viewport** showing output channels simultaneously. Includes responsive mobile, tablet, and desktop simulations.
 
-![Workspace Split View Layout](public/assets/workspace-split-view.png)
+#### Dark Mode Workspace
+![Workspace Split View Layout (Dark)](public/assets/workspace-split-view-dark.png)
+
+#### Light Mode Workspace
+![Workspace Split View Layout (Light)](public/assets/workspace-split-view-light.png)
 
 ### 🎨 Unlayer Visual Builder Tab
 Need customized structural revisions? Switch tabs to launch the fully featured **Drag & Drop Editor** powered by Unlayer, loaded with your active design configuration.
