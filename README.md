@@ -1,8 +1,8 @@
 # ✉️ MailCraft — Multi-Channel Email Studio & Visual Template Engine
 
-**A responsive, production-ready visual email layout workbench and canvas.**
+**A white-label, production-ready marketing design workspace and email campaign engine.**
 
-MailCraft is a premium, unified content workspace built for digital creators and engineering teams. It allows designers to describe template structures, custom color palettes, and marketing copy **once** in a single structured JSON object, instantly generating responsive, standards-compliant assets across multiple views: **Email Clients Layouts**, **Responsive Web Pages**, and **Print-Ready Documents**.
+MailCraft is a premium, unified content workbench built for marketing teams and developers. It enables brands to describe their design details, color palettes, fonts, product lines, and discount promotions **once** in a single structured JSON object, and instantly generates beautifully styled, channel-specific assets for **Email Campaigns**, **Standalone Web Pages**, and **Print-ready Documents & PDFs**.
 
 ### 🌓 Dark Mode Hero
 ![MailCraft Studio Landing Hero Dark](public/assets/landing-hero-dark.png)
@@ -14,23 +14,23 @@ MailCraft is a premium, unified content workspace built for digital creators and
 
 ## 📌 Problem Statement
 
-Digital marketing and engineering teams face significant friction maintaining consistency and quality across multiple marketing channels:
-1. **Fragmented Email Client Styling:** Writing standards-compliant email code is notoriously difficult. Ensuring layouts render consistently across Outlook, Gmail, Apple Mail, and mobile clients requires verbose, nested table code and inline CSS.
-2. **Design-to-Code Drift:** Building email templates in isolated visual designers and then manually coding them leads to design inconsistencies, structural bugs, and lost productivity.
-3. **Double Maintenance:** Updating a promotion code, changing product pricing, or tweaking color variables requires editing code configurations in several separate files, leading to high operational overhead.
+Marketing and product engineering teams face significant friction maintaining design consistency, copy updates, and compatibility across communication channels:
+1. **Double Data Entry & Fragmentation:** Announcing a new product line or launching a flash sale requires manual copy-pasting across promotional email campaigns (Mailchimp/Klaviyo), standalone landing pages (Vite/React pages), and print-ready PDF invoices or event invitations.
+2. **Pricing & Copy Mismatches:** Discrepancies between printed materials, online product listings, and email campaigns lead to brand confusion, reduced conversion rates, and pricing errors.
+3. **Responsive Client Overhead:** Designing separately for Email (which requires legacy, table-based responsive HTML styling), Web (which requires modern, flexible CSS grids), and Print (which requires static page margins and precise A4 aspect ratios) typically demands different design tools or expensive engineering resources.
 
 ---
 
 ## 💡 The Solution: MailCraft
 
-MailCraft addresses these challenges using the philosophy of **"One source of truth → Multiple responsive outputs."** Powered by `@unlayer/react-elements` compatible blocks, the studio reads a single data schema and renders branded outputs across three media viewports:
+MailCraft addresses these challenges using the philosophy of **"One source of truth → Multiple beautifully rendered outputs."** Powered by `@unlayer/react-elements` compatible blocks, the studio reads a single data schema and renders branded outputs across three media viewports:
 
-1. 📧 **Compliant Email Newsletter:** A responsive, single-column table layout optimized for standard email clients, containing brand headers, feature logs, spotlights, and feedback grids.
-2. 📱 **Mobile & Desktop Web Page:** A responsive web document view that renders the template using responsive web elements, standard typography spacing, and modern styling tokens.
-3. 📄 **Print Documents & PDFs:** A print-formatted document engine that wraps content according to A4 portrait specs, with custom margins and typography styles suitable for offline publication.
+1. 📧 **Promotional Email Newsletter:** A responsive, single-column table layout optimized for email clients, containing brand headers, editorial intro notes, spotlight cards, and feedback surveys.
+2. 📱 **Mobile & Desktop Web Page:** A mobile-first, interactive digital page featuring responsive web layouts, custom font stacks, and a live-updating web preview.
+3. 📄 **Print Documents & PDFs:** A print-formatted document engine that outputs A4 portrait sheets, complete with page-break margin safeguards and print stylesheets suitable for physical mailers or handouts.
 
 ### 🎨 Visual Theme Presets Catalog
-Designers can instantly swap the branding aesthetic using curated presets. The studio dynamically translates typography families, color variables, borders, button configurations, and shadow depths across all formats.
+Users can instantly swap the branding aesthetic using 6 curated designer presets. The studio dynamically translates typography families, color variables, borders, button configurations, and shadow depths across all formats.
 
 #### Dark Mode presets
 ![Designed for every brand style (Dark)](public/assets/landing-presets-dark.png)
@@ -55,9 +55,9 @@ While MailCraft provides a catalog of **18 professional templates** spanning New
 
 ---
 
-## 🛠️ Multi-Channel Workspace Features
+## 🛠️ Multi-Channel Output Workspace
 
-Every template compiles in real time. The workspace provides complete control over the layout, theme variables, and layout items:
+Every marketing template compiles to multiple outputs in real time. The rendering logic preserves design tokens across all views:
 
 ### 💻 Split View Workspace Layout
 A split-screen workspace featuring the real-time **Sidebar Customizer** panel on the left and a live-updating **Format Preview Viewport** showing output channels simultaneously. Includes responsive mobile, tablet, and desktop simulations.
